@@ -1,0 +1,140 @@
+<div id="form_container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+    <h1 class="text-2xl font-bold mb-6">Submit Your Information</h1>
+    <div>
+        <p class="text-gray-600">Please fill out the form below to submit your information.</p>
+        <!-- Tab Navigation -->
+        <div class="mb-8 border-b border-gray-200">
+            <nav class="flex space-x-4" id="tabs">
+                <button class="tab-button text-gray-600 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 pb-2" data-tab="about-organization">About Your Organization</button>
+                <button class="tab-button text-gray-600 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 pb-2" data-tab="additional-info">Additional Info</button>
+                <button class="tab-button text-gray-600 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 pb-2" data-tab="contact">Contact</button>
+            </nav>
+        </div>
+
+        <!-- Form -->
+        <form id="submission-form" class="space-y-4" hx-post="/m/done" hx-trigger="submit" hx-target="#form_container" hx-swap="outerHTML">
+            <input type="hidden" name="name" value="{{form.name}}" />
+            <input type="hidden" name="email" value="{{form.email}}" />
+            <input type="hidden" name="organization" value="{{form.organization}}" />
+            <input type="hidden" name="title" value="{{form.title}}" />
+                
+            <!-- TAB:AboutYourOrganization -->
+            <div class="tab-content" id="about-organization">
+                <div class="mb-6">
+                    <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                    <select id="category" name="category" required class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+                        <option value="Contact_NHI">Contact_NHI</option>
+                        <option value="Disclosure NHI UAP">Disclosure NHI UAP</option>
+                        <option value="Experiential_Anomalous Realities">Experiential_Anomalous Realities</option>
+                        <option value="Human Potential Movement">Human Potential Movement</option>
+                        <option value="Humans">Humans</option>
+                        <option value="Movements">Movements</option>
+                        <option value="Music Art Culture">Music Art Culture</option>
+                        <option value="Mystics">Mystics</option>
+                        <option value="Philosophy">Philosophy</option>
+                        <option value="Politics Civics">Politics Civics</option>
+                        <option value="Science">Science</option>
+                        <option value="Spirituality">Spirituality</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Unexplained Experiencers">Unexplained Experiencers</option>
+    
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label for="introduction" class="block text-sm font-medium text-gray-700">Summary</label>
+                    <textarea id="introduction" name="introduction" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="website" class="block text-sm font-medium text-gray-700">Website</label>
+                    <textarea id="website" name="website" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                
+            </div>
+            <!-- TAB:AboutYourOrganization End -->
+
+            <!-- TAB:AdditionalInfo -->
+            <div class="tab-content hidden" id="additional-info">
+                <div class="mb-6">
+                    <label for="relevance" class="block text-sm font-medium text-gray-700">Pertinence</label>
+                    <textarea id="relevance" name="relevance" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="resources" class="block text-sm font-medium text-gray-700">Resources and Links</label>
+                    <textarea id="resources" name="resources" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                <!-- 
+                <div class="mb-6">
+                    <label for="books" class="block text-sm font-medium text-gray-700">Books</label>
+                    <textarea id="books" name="books" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="videos" class="block text-sm font-medium text-gray-700">Videos</label>
+                    <textarea id="videos" name="videos" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div> 
+                -->
+            </div>
+            <!-- TAB:AdditionalInfo End -->
+
+            <!-- TAB:Contact -->
+            <div class="tab-content hidden" id="contact">
+                <div class="mb-6">
+                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                    <textarea id="location" value="tobe removed after testing" name="location" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="contact_info" class="block text-sm font-medium text-gray-700">Contact Info</label>
+                    <textarea id="contact_info" value="tobe removed after testing" name="contact_info" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+                <div class="mb-6">
+                    <label for="social_media" class="block text-sm font-medium text-gray-700">Social Media</label>
+                    <textarea id="social_media" value="tobe removed after testing" name="social_media" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2">tobe removed after testing</textarea>
+                </div>
+            </div>
+            <!-- TAB:Contact End -->
+
+            <!-- Next Button -->
+            <button type="button" id="next-button" class="btn button btn-primary w-half bg-blue-500 text-white font-bold py-2 rounded hover:bg-blue-600">Next</button>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit-button" class="btn button btn-primary hidden w-half bg-blue-500 text-white font-bold py-2 rounded hover:bg-blue-600">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Tab navigation logic
+        const tabs = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const nextButton = document.getElementById('next-button');
+        const submitButton = document.getElementById('submit-button');
+        let currentTab = 0;
+
+        function showTab(index) {
+            tabContents.forEach((content, i) => {
+                content.classList.toggle('hidden', i !== index);
+            });
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('text-blue-500', i === index);
+                tab.classList.toggle('border-blue-500', i === index);
+            });
+
+            // Show submit button on the last tab, otherwise show next button
+            if (index === tabContents.length - 1) {
+                nextButton.classList.add('hidden');
+                submitButton.classList.remove('hidden');
+            } else {
+                nextButton.classList.remove('hidden');
+                submitButton.classList.add('hidden');
+            }
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentTab < tabContents.length - 1) {
+                currentTab++;
+                showTab(currentTab);
+            }
+        });
+
+        // Initialize the first tab
+        showTab(currentTab);
+    </script>
+</div>

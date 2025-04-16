@@ -1,0 +1,38 @@
+<div id="thankyou-message" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                  
+                  <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <h2 class="text-xl font-bold mb-6">Thank You! {{form.title}} will be included on our map.</h2>
+                    <div class="mt-2">
+                        <p>Your involvement is important to us. Would you like to provide more details about {{form.title}}?</p>
+                        <p class="mt-2">The details you provide will be displayed as part of the map.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <form id="no_question" class="space-y-4" hx-post="/m/no" hx-trigger="submit" hx-target="#form_container" hx-swap="outerHTML">
+                  <input type="hidden" name="category" value="NotSpecified" />
+                  <input type="hidden" name="name" value="{{form.name}}" />
+                  <input type="hidden" name="email" value="{{form.email}}" />
+                  <input type="hidden" name="title" value="{{form.title}}" />
+                  <button  class="btn button btn-primary inline-flex justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 sm:ml-3 sm:w-auto">Close</button>
+                </form>
+                <form id="yes_question" class="space-y-4" hx-post="/m/yes" hx-trigger="submit" hx-target="#form_container" hx-swap="outerHTML">
+                  <input type="hidden" name="category" value="NotSpecified" />
+                  <input type="hidden" name="name" value="{{form.name}}" />
+                  <input type="hidden" name="email" value="{{form.email}}" />
+                  <input type="hidden" name="title" value="{{form.title}}" />
+                 <button type="submit" class="btn button btn-primary inline-flex justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 sm:ml-3 sm:w-auto">Yes!</button>
+                </form>
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

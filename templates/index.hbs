@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div id="form_container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+        <h1 class="text-2xl font-bold mb-6">Submit Your Information</h1>
+        <div >
+            <p class="text-gray-600">Please fill out the form below to submit your information.</p>
+        <!-- Tab Navigation -->
+        <!-- 
+        <div class="mb-8 border-b border-gray-200">
+            <nav class="flex space-x-4" id="tabs">
+                <button class="tab-button text-gray-600 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 pb-2" data-tab="about-you">About You</button>
+            </nav>
+        </div>
+        -->
+        <!-- Form -->
+        <form id="submission-form" class="space-y-4" hx-post="/m/submit" hx-trigger="submit" hx-target="#thankyou-modal" hx-swap="innerHTML">
+            <!-- TAB:AboutYou -->
+            <input type="hidden" name="category" value="NotSpecified" />
+            <div class="tab-content" id="about-you">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                    <input type="text" id="name" name="name"  value="TOBE REMOVED AFTER TESTING" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                    <input type="email" id="email" name="email" value="tobe@removedafter.testing" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+                </div>
+                <div class="mb-6">
+                    <label for="title" class="block text-sm font-medium text-gray-700">What is the entry to be added to the Map?</label>
+                    <input type="text" id="title" value="TOBE REMOVED AFTER TESTING" name="title" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="2" />
+                </div>
+                <!-- 
+                <div class="mb-6">
+                    <label for="title" class="block text-sm font-medium text-gray-700">Your Title</label>
+                    <input type="text" id="title" name="title" value="TOBE REMOVED AFTER TESTING" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+                </div> --> 
+            </div>
+            <!-- TAB:AboutYou End -->
+            <!--
+            <button type="next" class="btn button btn-primary w-half bg-blue-500 text-white font-bold py-2 rounded hover:bg-blue-600">Next</button>
+            -->
+            <button type="submit" class="btn button btn-primary w-half bg-blue-500 text-white font-bold py-2 rounded hover:bg-blue-600">Submit</button>
+        </form>
+    </div>
+
+    <div id="thankyou-modal"></div>
+    
+
+</body>
+</html>
